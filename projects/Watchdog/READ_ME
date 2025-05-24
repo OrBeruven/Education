@@ -1,0 +1,7 @@
+To compile as release version open terminal in the same folder as makefile,
+type "make".
+To compile as debbug type "make debug".
+To run client - "./bin/wd_client".
+The default client is 12 second, you can change that in wd_client.c in src folder.
+
+happy debugging :)

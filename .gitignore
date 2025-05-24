@@ -1,0 +1,19 @@
+#ignore types
+*.*
+bin/
+CodeReview/
+
+#dont ignore c and h files
+
+!*.c
+!*.h 
+!*.class
+!*.java
+#dont ignore mt files and md
+
+!*.md
+!*.mt
+
+!.myfuncs
+
+!.gitignore

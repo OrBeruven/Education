@@ -1,0 +1,73 @@
+Stitle Scheduler
+
+participant User
+participant Scheduler
+participant PQ
+participant Task
+participant UID
+
+==Create Scheduler==
+User->Scheduler: SchCreate(void)
+Scheduler->PQ: PQCreate(int (*priority_func)(const void *lhs, const void *rhs))
+PQ->Scheduler: pq_t *
+Scheduler->User: sch_t *
+
+==Destroy Scheduler==
+User->Scheduler: SchDestroy(sch_t *)
+Scheduler->PQ: PQDestroy(pq_t *)
+PQ->Scheduler: void
+Scheduler->User: void
+
+==Add Task==
+User->Scheduler:SchAddTask(sch_t *, int (*op_func)(void *), void *, time_t, time_t)
+Scheduler->Task:TaskCreate(int (*op_func)(void *), void *, time_t, time_t)
+Task->UID:UIDCreate()
+UID->Task:uid_t
+Task->Scheduler:task_t *
+Scheduler->PQ:PQEnqueue(pq_t *, task_t *)
+PQ->Scheduler:SUCCESS/FAILURE
+Scheduler->User:uid_t
+
+==Remove Task==
+User->Scheduler:SchRemoveTask(sch_t *, uid_t)
+Scheduler->PQ:PQErase(sch_t *, int (*match_func)(const void *, const void *))
+PQ->Scheduler:task_t *
+Scheduler->Task:TaskDestroy(task_t *)
+Task->Scheduler:void
+Scheduler->User:void
+
+==Is Empty==
+User->Scheduler:SchIsEmpty(sch_t *)
+Scheduler->PQ:PQIsEmpty(pq_t *)
+PQ->Scheduler:IS_EMPTY / ISNT_EMPTY
+Scheduler->User:IS_EMPTY / ISNT_EMPTY
+
+==Size==
+User->Scheduler:SchSize(sch_t *)
+Scheduler->PQ:PQSize(pq_t *)
+PQ->Scheduler:size_t
+Scheduler->User:size_t
+
+
+==SchRun==
+User->Scheduler:SchRun(sch_t *)
+Scheduler->PQ:PQPeek(pq_t *)
+PQ->Scheduler:task_t *
+Scheduler->Task: TaskRunTask(task_t *)
+Task->Scheduler:SUCCESS / FAILURE
+Scheduler->PQ:PQDequeue(pq_t *)
+PQ->Scheduler:void
+Scheduler->Task:TaskDestroy(task_t *)
+Scheduler->User:SUCCESS / FAILURE
+
+==Clear Scheduler==
+User->Scheduler:SchClear(sch_t *)
+Scheduler->PQ:PQIsEmpty(pq_t *)
+PQ->Scheduler:IS_EMPTY / ISNT_EMPTY
+Scheduler->PQ:PQPeek(pq_t *)
+PQ->Scheduler:task_t *
+Scheduler->Task:TaskDestroy(task_t *)
+Task->Scheduler:void
+Scheduler->PQ:PQDequeue(pq_t *)
+PQ->Scheduler:void
+Scheduler->User:void

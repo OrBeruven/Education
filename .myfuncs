@@ -1,0 +1,6 @@
+alias gd='gcc -ansi -pedantic-errors -Wall -Wextra -g'
+alias gc='gcc -ansi -pedantic-errors -Wall -Wextra -DNDEBUG -03'
+alias gd9='gcc -std=c99 -pedantic-errors -Wall -Wextra -g'
+alias gc9='gcc -std=c99 -pedantic-errors -Wall -Wextra -DNDEBUG -03'
+
+alias vlg='valgrind --leak-check=yes --track-origin=yes'
