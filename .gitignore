@@ -1,5 +1,5 @@
 # dependencies
-*/node_modules/
+node_modules/
 
 # build output
 /build
@@ -34,7 +34,6 @@ pnpm-debug.log*
 
 
 #ignore types
-*.*
 bin/
 CodeReview/
 
