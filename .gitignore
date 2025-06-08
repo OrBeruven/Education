@@ -34,7 +34,6 @@ pnpm-debug.log*
 
 
 #ignore types
-*.*
 bin/
 CodeReview/
 
