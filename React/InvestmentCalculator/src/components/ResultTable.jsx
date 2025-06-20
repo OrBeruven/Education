@@ -25,8 +25,6 @@ export default function ResultTable(
     duration
   );
 
-  console.log(annualData);
-
   return (
     <table id="result">
       <thead>

@@ -7,7 +7,7 @@ const DEFAULT_USER_INPUT = {
   initial: 0,
   annual: 0,
   returnRate: 0,
-  duration: 0,
+  duration: 1,
 };
 
 function App() {
@@ -18,21 +18,21 @@ function App() {
     const newValue = event.target.value;
 
     setUserInput((prev) => {
-      const updatedInput = {...prev};
+      const updatedInput = { ...prev };
       updatedInput[id] = newValue;
       return updatedInput;
     });
   }
 
-  console.log(userInput);
   return (
     <>
-      <UserInput onChange={handleInputChange}></UserInput>
+      <UserInput userInput={userInput} onChange={handleInputChange}></UserInput>
+
       <ResultTable
-        initialInvestment={userInput["initial"]}
-        annualInvestment={userInput["annual"]}
-        expectedReturn={userInput["returnRate"]}
-        duration={userInput["duration"]}
+        initialInvestment={userInput.initial}
+        annualInvestment={userInput.annual}
+        expectedReturn={userInput.returnRate}
+        duration={userInput.duration}
       ></ResultTable>
     </>
   );

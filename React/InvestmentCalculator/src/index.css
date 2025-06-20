@@ -87,3 +87,10 @@ body {
 .center {
   text-align: center;
 }
+
+.error {
+  color: salmon;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 1rem;
+}
