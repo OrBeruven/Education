@@ -4,10 +4,10 @@ import UserInput from "./components/UserInput";
 import ResultTable from "./components/ResultTable";
 
 const DEFAULT_USER_INPUT = {
-  initial: 0,
-  annual: 0,
-  returnRate: 0,
-  duration: 1,
+  initial: 10000,
+  annual: 1200,
+  returnRate: 6,
+  duration: 10,
 };
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
 
     setUserInput((prev) => {
       const updatedInput = { ...prev };
-      updatedInput[id] = newValue;
+      updatedInput[id] = Number(newValue);
       return updatedInput;
     });
   }
