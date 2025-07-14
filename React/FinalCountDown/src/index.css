@@ -164,6 +164,14 @@ header p {
   text-transform: uppercase;
 }
 
+.result-modal h2.score {
+  color: #10655b; 
+}
+
+.result-modal h2.lost {
+  color: #d11a2a; 
+}
+
 .result-modal progress {
   width: 100%;
   height: 1.5rem;
